@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'ValeSans';
+  src: url('../db/ValeSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ValeSans';
+  src: url('../db/db/ValeSans-Extrabold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ValeSans';
+  src: url('../db/db/ValeSans-ExtralightItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ValeSans';
+  src: url('../db/db/ValeSans-ExtraboldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+body, .stApp {
+  font-family: 'ValeSans', sans-serif;
+  background-color: #F5F5F5;
+  margin: 0;
+  padding: 0;
+  color: #333; /* Texto principal com legibilidade */
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+    color: #007E7A; /* Verde-Vale */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+/* Container de botões com espaçamento responsivo */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem auto 2rem;
+    flex-wrap: wrap;
+    width: 100%;    
+}
+
+.button-container .stButton {
+    flex: 0 0 180px;    /* largura fixa de 180px (ajuste como preferir) */
+    display: flex;      /* para que o filho <button> possa se expandir 100% */
+}
+
+ 
+/* Botões */
+.stButton > button {
+    background-color: #007E7A;
+    color: #ffffff;
+    padding: 0.6rem 1.4rem;
+    border-radius: 22px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;             /* todos crescem na mesma proporção */
+    text-align: center;
+    width: 190px;   /* escolha um valor que caiba todo o texto */
+    height: 55px;   /* opcional, para manter a altura uniforme */
+}
+
+div[data-testid="stHorizontalBlock"] .stColumn p {
+    color: #ffffff;
+}
+
+/* Hover e active */
+.stButton > button:hover,
+.stButton > button:active {
+    background-color: #EDB111 !important;
+    color: #007E7A !important;
+}
+
+
+/* Destaques */
+.highlight {
+    background-color: #EDB111;
+    color: black;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Notas / textos informativos */
+.note {
+    color: #919191;
+    font-style: italic;
+}
+
+/* Cartões de conteúdo como gráficos, tabelas e mapas */
+.stPlotlyChart, .stAltairChart, .stMap, .stDataFrame, .stTable {
+    background-color: #FFFFFF; /* Mais contraste e visual clean */
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Tabelas */
+.stTable th, .stTable td {
+    border: 1px solid #007E7A;
+    padding: 12px;
+}
+
+.stTable th {
+    background-color: #007E7A;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+}
+
+.stTable tbody tr:nth-child(even) {
+    background-color: #E1F5F1;
+}
+
+/* Sidebar */
+[data-testid=stSidebar] {
+    background-color: #007E7A;
+    }
+
+/* Remove cabeçalho e rodapé */
+header, footer {
+    visibility: hidden; /* hidden/visible */
+}
+
+.block-container {
+    background-color: transparent !important;
+}
+
+/* Remover fundo de containers internos (gráficos, tabelas, mapas) */
+.stDataFrame, .stTable, .stPlotlyChart, .stAltairChart, .stMap {
+    background-color: transparent !important;
+    box-shadow: none !important; /* Remove sombras, se tiver */
+    border: none !important; /* Remove bordas, se quiser */
+}
+
+/* Remove espaçamento vertical entre os blocos de expanders */
+div[data-testid="stVerticalBlock"] > div {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
+/* Expander sem espaçamento extra */
+.st-expander {
+    margin-bottom: 0rem;
+    padding: 0rem;
+}
+
+/* Título do expander mais compacto */
+.st-expander summary {
+    line-height: 1.2;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+/* Conteúdo interno mais compacto */
+.stExpanderContent {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    line-height: 0.2;
+}
+
+/* Borda verde nos selectboxes */
+.stSelectbox > div {
+    border: 0.5px solid black !important;
+    border-radius: 10px;
+    padding: 1px;
+}

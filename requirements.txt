@@ -1,0 +1,11 @@
+geobr
+streamlit
+geopandas
+pandas
+folium
+plotly.express
+numpy
+streamlit-folium
+seaborn
+streamlit-aggrid
+wordcloud

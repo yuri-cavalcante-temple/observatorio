@@ -1,0 +1,118 @@
+/* div[data-testid="stVerticalBlock"] > div {
+    background-color: #00867D;
+} */
+
+div[data-testid="stHorizontalBlock"] .stColumn {
+    background-color: transparent !important;
+    padding: 50px !important;
+}
+
+div[data-testid="stHorizontalBlock"] .stColumn h2 {
+    color: #00867D;
+    font-weight: 700;
+    font-size: 54px;
+    max-width: 280px;
+}
+
+
+div[data-testid="stHorizontalBlock"] .stColumn p {
+    color: #00867D;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0.5px;
+    max-width: 450px;
+}
+
+div[data-testid="stHorizontalBlock"] .stColumn button  p {
+    color: #fff !important;
+}
+
+div[data-testid="stHorizontalBlock"] .stColumn h3 {
+    color: #00867D;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+div[data-testid="stHorizontalBlock"] iframe, div[data-testid="stHorizontalBlock"] div {
+    justify-content: inherit !important;
+    max-height: 180px !important;
+}
+
+div[data-testid="stElementContainer"] div[data-testid="stButton"] button[data-testid="stBaseButton-secondary"] > p {
+    color: #fff;
+}
+
+.btn-reset {
+    color: #fff !important;
+}
+
+
+.stMain {
+    margin-top: -65px;
+    padding: 0;
+}
+
+.section-green-map {
+    background-color: #00867D !important;
+
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]{
+    background: #00867D !important;
+}
+
+div[data-testid="stVerticalBlock"] > .stColumn {
+    background-color: #00867D;
+}
+
+.footer-top {
+    background-color: #00635A;
+    color: white;
+    width: 100vw;
+    padding: 60px 80px 30px 80px;
+    box-sizing: border-box;
+    font-family: "Vale Sans", sans-serif;
+    font-size: 14px;
+}
+
+.footer-top .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    border-top: 1px solid #ffffff33;
+    padding-top: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 180px;
+    max-width: 230px;
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.footer-column p,
+.footer-column a {
+    margin: 4px 0;
+    color: #ffffffcc;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    font-size: 16px;
+    border-top: 1px solid #ffffff33;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* .st-bs {
+    background-color: #D9D9D9;
+} */

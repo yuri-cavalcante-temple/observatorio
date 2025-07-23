@@ -1,0 +1,31 @@
+div[data-testid="stHorizontalBlock"] iframe, div[data-testid="stHorizontalBlock"] .stSelectbox {
+    min-width: 150px;
+    max-width: 300px;
+    
+}
+
+div[data-testid="stHorizontalBlock"] iframe, div[data-testid="stDateInput"] {
+   background-color: #fff !important;
+}
+
+div[data-testid="stHorizontalBlock"] iframe, div[data-testid="stHorizontalBlock"] .stSelectbox p{
+    color: #D9D9D9 !important;
+}
+div[data-testid="stHorizontalBlock"] .stColumn p {
+    color: #000 !important;
+}
+
+div[data-testid="stHorizontalBlock"] iframe, div[data-testid="stHorizontalBlock"] input {
+   background-color: #000 !important;
+    
+}
+
+button[data-testid="stBaseButton-secondary"] {
+    background-color: #000 !important;
+    color: #fff;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}
