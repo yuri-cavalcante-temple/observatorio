@@ -1,27 +1,27 @@
 import streamlit as st
 import folium
-from streamlit_folium import st_folium
+import tempfile
+import streamlit.components.v1 as components
 
 import menu
 from utils import load_css
 from data_base import load_territorial_intelligence_data
 
-# st.set_page_config(layout="wide")
-
 def initial():
     load_css("home.css")
 
-    st.markdown(f"""
-                <div class="section-green-map">
-                    <h2> Observatório da Reparação </h2>
-                    <p> A plataforma reúne dashboards com dados estratégicos sobre<br>pautas comunitárias, atuação técnica e cobertura midiática. </p>
-                    <p class="especial_box"> Mapa Interativo </p>
-                </div>
-                """, unsafe_allow_html=True)
+    st.markdown("""
+        <div class="section-green-map">
+            <h2> Observatório da Reparação </h2>
+            <p> A plataforma reúne dashboards com dados estratégicos sobre<br>pautas comunitárias, atuação técnica e cobertura midiática. </p>
+            <p class="especial_box"> Mapa Interativo </p>
+        </div>
+    """, unsafe_allow_html=True)
 
-    col1, col2 = st.columns([1, 2]) 
+    col1, col2 = st.columns([1, 2])
+
     with col1:
-        st.markdown(f"""
+        st.markdown("""
             <div class="section-white-map">
                 <h3>Mapa<br> Interativo</h3>
                 <p>Seguimento por município, exibe uma<br>
@@ -42,19 +42,18 @@ def initial():
             demandas_html = "<ul style='margin:0; padding-left:15px;'>" + "".join(f"<li>{d}</li>" for d in demandas) + "</ul>" if demandas else "-"
             microCategoria_html = "<ul style='margin:0; padding-left:15px;'>" + "".join(f"<li>{p}</li>" for p in microCategoria) + "</ul>" if microCategoria else "-"
 
-            html = f"""
-            <b>Município:</b> {row['municipio']}<br>
-            <b>Região:</b> {row['Regiao']}<br>
-            <b>Principais demandas 0800:</b> {demandas_html}
-            <br><b>Principais demandas RCs:</b> {microCategoria_html}
+            return f"""
+                <b>Município:</b> {row['municipio']}<br>
+                <b>Região:</b> {row['Regiao']}<br>
+                <b>Principais demandas 0800:</b> {demandas_html}
+                <br><b>Principais demandas RCs:</b> {microCategoria_html}
             """
-            return html
 
         data = load_territorial_intelligence_data()
         gdf = data['gdf_map']
         gdf['tooltip_html'] = gdf.apply(formatar_tooltip_html, axis=1)
 
-        m = folium.Map(location=[-19.1, -44.2], zoom_start=8, tiles=None, control_scale=True)
+        m = folium.Map(location=[-19.1, -44.2], zoom_start=8, tiles=None, control_scale=True, scrollWheelZoom=False)
         folium.TileLayer("CartoDB positron", name="Positron", control=False).add_to(m)
 
         color_map = {
@@ -98,6 +97,13 @@ def initial():
         bounds = gdf.total_bounds
         m.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 
-        st_folium(m, width=800, height=500)
+        # Salvar mapa em arquivo temporário e ler conteúdo
+        with tempfile.NamedTemporaryFile(suffix=".html", mode="r+", encoding="utf-8") as f:
+            m.save(f.name)
+            f.seek(0)
+            html_data = f.read()
+
+        # Renderizar mapa folium dentro do Streamlit com altura fixa
+        components.html(html_data, height=500, scrolling=False)
 
     menu.footer()

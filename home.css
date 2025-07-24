@@ -10,11 +10,12 @@
 div[data-testid="stHorizontalBlock"]{
     display: flex;
     gap: 0;
-    min-width: 100vw;
+    /* min-width: 100vw; */
     flex-flow: nowrap;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
+    overflow-x: hidden !important;
 }
 
 div[data-testid="stHorizontalBlock"] iframe, div[data-testid="stHorizontalBlock"] div {
@@ -257,3 +258,8 @@ div[data-testid="stVerticalBlock"]{
         flex-direction: column;
     }
 }
+
+div[data-testid="stHorizontalBlock"] .stColumn .stMarkdown p {
+    color: #00867D;
+}
+

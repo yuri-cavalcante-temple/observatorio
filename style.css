@@ -183,3 +183,12 @@ div[data-testid="stVerticalBlock"] > div {
     border-radius: 10px;
     padding: 1px;
 }
+
+div[data-testid="stImageContainer"] {
+    margin-bottom: 5rem;
+}
+
+div[data-testid="stFullScreenFrame"] {
+    margin-bottom: 5rem;
+    max-width: 98vw;
+}

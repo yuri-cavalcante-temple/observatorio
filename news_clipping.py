@@ -81,31 +81,31 @@ def news_clipping():
 
     categorias_relacionadas = sorted(df_filtrado_final["Tema Principal"].unique(), reverse=True)
 
-    st.write(f"Categorias associadas à entidade **{entidade_escolhida}** em **{trimestre_escolhido}**:")
-    if categorias_relacionadas:
-        col_esq, col_centro, col_dir = st.columns([1, 2, 1])    
-        with col_centro:
-            st.markdown(
-                f"""
-                <div style='
-                    background-color: #EDB111;
-                    color: #007E7A;
-                    padding: 10px;
-                    border-radius: 10px;
-                    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                    text-align: center;
-                    font-size: 20px;
-                    font-weight: 500;
-                '>
-                    <span style="font-size: 25px;">📋 <strong>Categorias</strong> da entidade <em>{entidade_escolhida}</em><br>
-                    no trimestre <em>{trimestre_escolhido}</em>:</span><br><br>
-                    {"<br>".join(f"◦ {cat}" for cat in categorias_relacionadas) if categorias_relacionadas else "<i>Nenhuma categoria encontrada.</i>"}
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-    else:
-        st.warning("Nenhuma categoria encontrada para os filtros selecionados.")
+    # st.write(f"Categorias associadas à entidade **{entidade_escolhida}** em **{trimestre_escolhido}**:")
+    # if categorias_relacionadas:
+    #     col_esq, col_centro, col_dir = st.columns([1, 2, 1])    
+    #     with col_centro:
+    #         st.markdown(
+    #             f"""
+    #             <div style='
+    #                 background-color: #EDB111;
+    #                 color: #007E7A;
+    #                 padding: 10px;
+    #                 border-radius: 10px;
+    #                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    #                 text-align: center;
+    #                 font-size: 20px;
+    #                 font-weight: 500;
+    #             '>
+    #                 <span style="font-size: 25px;">📋 <strong>Categorias</strong> da entidade <em>{entidade_escolhida}</em><br>
+    #                 no trimestre <em>{trimestre_escolhido}</em>:</span><br><br>
+    #                 {"<br>".join(f"◦ {cat}" for cat in categorias_relacionadas) if categorias_relacionadas else "<i>Nenhuma categoria encontrada.</i>"}
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+    # else:
+    #     st.warning("Nenhuma categoria encontrada para os filtros selecionados.")
 
 
     st.write('')
@@ -403,3 +403,8 @@ def news_clipping():
     except ValueError as e:
         st.error("Não há dados suficientes para gerar a nuvem de palavras.")
         st.error(str(e))
+        
+        st.markdown(f"""
+            <div style='margin-bottom: 50px'>
+            </div>
+            """, unsafe_allow_html=True)
